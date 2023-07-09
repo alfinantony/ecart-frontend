@@ -1,0 +1,68 @@
+							
+                            	ECartFrontend
+
+1: create a folder E-cart
+2: Inside in it create a angular application  - ng new e-cart-frontend
+3: cd e-cart-frontend
+4: code .
+5: Run angular application –> ng s -o
+6: clear code in app.component.html
+
+7: Import 3rd party libraries
+
+    	Bootstrap (index.html)
+    	Font-awesome(index.html)
+    	Google fonts(style.css)
+
+8: Lazy loading
+
+- Lazy loading helps keep initial bundle sizes smaller, which in turn helps decrease load times.
+
+- Lazy loading is an approach to limit the modules that are loaded to the ones that the user currently needs.
+  This can improve your application’s performance and reduce the initial bundle size.
+
+->Generate module – ng g m products --route products --module app.module
+
+9: Component generation
+    >	ng g c products/allProducts
+    >	ng g c products/viewProducts
+    >	ng g c products/wishlist
+    >	ng g c products/cart
+    
+   Not in lazy loading
+    	ng g c header
+    	ng g c footer
+        ng g c pageNoteFound
+
+10:Setup path
+    
+    > put <router-outlet></router-outlet>  in app.component.html
+    > products.routing.module.ts
+
+
+11: API Integration
+
+    -> import HttpClientModule in app.module.ts
+    -> Create a services inside product module - for API calling 
+          ng g s products/services/api
+    -> Inside api.services file,
+          = create and use http dependency injection
+          = also create a function for (getAllProducts()) fetching all products details
+    -> Inside all-products.component file ,
+          = create and use api dependency injection
+          = also create a function for Integrating api services
+          = get all product details
+    
+
+WISHLIST FUNCTIONALITY IS COMPLETED
+````````````````````````````````````````````````````````````````````
+
+-> product search
+            ng g p products/pipes/filter
+-> Behavior subjects
+         If the data is confined to a single component there is (almost) no need for observables.
+         If the data needs to be shared among multiple components however, it is stored in singleton services. 
+         And components have no way of knowing the state of data in the service. 
+         So observables are used to tell the components the state of the data has been changed.
+
+->cart functionality
